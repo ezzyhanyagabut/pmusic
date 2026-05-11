@@ -1,7 +1,13 @@
 {
   "version": "1",
   "build": {
-    "aptPackages": ["php8.4-intl", "php8.4-gd", "php8.4-zip", "php8.4-mysql"],
+    "aptPackages": [
+      "php8.4-intl", 
+      "php8.4-gd", 
+      "php8.4-zip", 
+      "php8.4-mysql",
+      "php8.4-curl"
+    ],
     "providers": ["php", "node"],
     "steps": {
       "install": {
