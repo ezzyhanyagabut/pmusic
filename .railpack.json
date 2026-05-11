@@ -1,0 +1,22 @@
+{
+  "version": "1",
+  "build": {
+    "aptPackages": ["php8.4-intl", "php8.4-gd", "php8.4-zip", "php8.4-mysql"],
+    "providers": ["php", "node"],
+    "steps": {
+      "install": {
+        "commands": [
+          "rm -f composer.lock",
+          "composer install --no-dev --optimize-autoloader --ignore-platform-reqs",
+          "npm ci && npm run build"
+        ]
+      }
+    }
+  },
+  "deploy": {
+    "startCommand": "php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=$PORT",
+    "variables": {
+      "PHP_VERSION": "8.4"
+    }
+  }
+}
